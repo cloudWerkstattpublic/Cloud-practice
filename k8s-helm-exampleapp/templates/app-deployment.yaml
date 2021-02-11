@@ -9,6 +9,9 @@ metadata:
     app: {{ template "fullname" . }}
 spec:
   replicas: {{default 1 .Values.app.Replicas}}
+  selector:
+    matchLabels:
+      app: {{ template "fullname" . }}
   strategy:
     type: RollingUpdate
   template:
